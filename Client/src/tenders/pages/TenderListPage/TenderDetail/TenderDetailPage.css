@@ -1,0 +1,491 @@
+.tender-detail-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.tender-detail-actions-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  direction: rtl;
+}
+
+.tender-detail-action-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tender-detail-action-button {
+  padding: 9px 16px;
+  border: 1px solid #14b8b0;
+  border-radius: 5px;
+  background: transparent;
+  color: #14b8b0;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.tender-detail-action-button:hover {
+  background: #14b8b014;
+}
+
+.tender-detail-action-button--edit {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+
+.tender-detail-action-button--edit:hover:not(:disabled) {
+  filter: brightness(1.05);
+  background: var(--primary);
+  color: #fff;
+}
+
+.tender-detail-action-button--edit:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.tender-detail-back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 13px;
+  white-space: nowrap;
+  transition: border-color 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+.tender-detail-back-button:hover {
+  border-color: var(--primary);
+  background: var(--bg-card-alt);
+  color: var(--text-strong);
+}
+
+.tender-detail-state {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.tender-detail-error {
+  color: var(--danger);
+}
+
+.tender-detail-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-card);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+}
+
+.tender-detail-title-bar {
+  background: #1f5fa8;
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 16px;
+}
+
+.tender-detail-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  direction: rtl;
+}
+
+.tender-detail-panel {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-soft);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.tender-detail-panel-title {
+  background: #1f5fa8;
+  color: #fff;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px;
+}
+
+.tender-detail-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 16px;
+}
+
+.tender-detail-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px;
+  border-radius: 3px;
+  border: 1px solid var(--border-soft);
+  background: var(--bg-card-alt);
+  min-height: 66px;
+  justify-content: center;
+}
+
+.tender-detail-field--full {
+  grid-column: 1 / -1;
+}
+
+.tender-detail-field-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.tender-detail-field-value {
+  font-size: 14px;
+  color: var(--text-main);
+  text-align: center;
+  word-break: break-word;
+}
+
+.tender-detail-status-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 5px;
+  background: rgb(199, 201, 203);
+  color: rgb(0, 0, 0);
+  border: 1px solid var(--border);
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .tender-detail-panels {
+    grid-template-columns: 1fr;
+  }
+
+  .tender-detail-actions-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 520px) {
+  .tender-detail-fields {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tender-detail-delete-button {
+  padding: 9px 16px;
+  border: 1px solid #dc3545;
+  border-radius: 5px;
+  background: transparent;
+  color: #dc3545;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.tender-detail-delete-button:hover:not(:disabled) {
+  background: #dc3545;
+  color: #fff;
+}
+
+.tender-detail-delete-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.tender-detail-delete-success {
+  margin: 16px 20px 0;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: rgba(39, 174, 96, 0.1);
+  border: 1px solid rgba(39, 174, 96, 0.35);
+  color: #27ae60;
+  font-size: 14px;
+  direction: rtl;
+  text-align: right;
+}
+
+.tender-detail-delete-error {
+  margin: 16px 20px 0;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: rgba(220, 53, 69, 0.1);
+  border: 1px solid rgba(220, 53, 69, 0.35);
+  color: #dc3545;
+  font-size: 14px;
+  direction: rtl;
+  text-align: right;
+}
+
+.tender-delete-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.tender-delete-modal {
+  width: min(420px, 100%);
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.2);
+}
+
+.tender-delete-modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #222;
+}
+
+.tender-delete-modal-message {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.tender-delete-modal-actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.tender-delete-modal-cancel,
+.tender-delete-modal-confirm {
+  min-width: 90px;
+  padding: 9px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tender-delete-modal-cancel {
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #444;
+}
+
+.tender-delete-modal-cancel:hover:not(:disabled) {
+  background: #f5f5f5;
+}
+
+.tender-delete-modal-confirm {
+  border: 1px solid #dc3545;
+  background: #dc3545;
+  color: #fff;
+}
+
+.tender-delete-modal-confirm:hover:not(:disabled) {
+  background: #bb2d3b;
+}
+
+.tender-delete-modal-cancel:disabled,
+.tender-delete-modal-confirm:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.tender-delete-modal-error {
+  margin-bottom: 16px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: rgba(220, 53, 69, 0.08);
+  border: 1px solid rgba(220, 53, 69, 0.25);
+  color: #dc3545;
+  font-size: 13px;
+}.tender-detail-delete-button {
+  padding: 9px 16px;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.tender-detail-delete-button:hover:not(:disabled) {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--bg-card);
+}
+
+.tender-detail-delete-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.tender-detail-delete-success {
+  margin: 16px 20px 0;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-card-alt);
+  color: var(--text-main);
+  font-size: 14px;
+  direction: rtl;
+  text-align: right;
+}
+
+.tender-detail-delete-error {
+  margin: 16px 20px 0;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-hover);
+  color: var(--text-main);
+  font-size: 13px;
+  direction: rtl;
+  text-align: right;
+}
+
+.tender-delete-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: color-mix(
+    in srgb,
+    var(--bg-main) 72%,
+    transparent
+  );
+}
+
+.tender-delete-modal {
+  width: min(420px, 100%);
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-card);
+  color: var(--text-main);
+  box-shadow: 0 20px 50px color-mix(
+    in srgb,
+    var(--bg-main) 45%,
+    transparent
+  );
+  direction: rtl;
+}
+
+.tender-delete-modal-title {
+  margin-bottom: 14px;
+  color: var(--text-strong);
+  font-size: 18px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.tender-delete-modal-message {
+  margin-bottom: 20px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.8;
+  text-align: right;
+}
+
+.tender-delete-modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.tender-delete-modal-cancel,
+.tender-delete-modal-confirm {
+  min-width: 90px;
+  padding: 9px 16px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.tender-delete-modal-cancel {
+  border: 1px solid var(--border);
+  background: var(--bg-input);
+  color: var(--text-secondary);
+}
+
+.tender-delete-modal-cancel:hover:not(:disabled) {
+  border-color: var(--primary);
+  background: var(--bg-hover);
+  color: var(--text-main);
+}
+
+.tender-delete-modal-confirm {
+  border: 1px solid var(--primary);
+  background: var(--primary);
+  color: var(--bg-card);
+}
+
+.tender-delete-modal-confirm:hover:not(:disabled) {
+  border-color: var(--primary-hover);
+  background: var(--primary-hover);
+}
+
+.tender-delete-modal-cancel:disabled,
+.tender-delete-modal-confirm:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.tender-delete-modal-error {
+  margin-bottom: 16px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--bg-hover);
+  color: var(--text-main);
+  font-size: 13px;
+  text-align: right;
+}

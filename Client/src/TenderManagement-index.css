@@ -1,0 +1,107 @@
+@font-face {
+  font-family: "IRANSans";
+  src: url("/fonts/IRANSansWeb_0.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IRANSans";
+  src: url("/fonts/IRANSansWeb_Bold_0.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  --bg-main: #131e35;
+  --bg-header: #171b31;
+  --bg-sidebar: #10182a;
+  --bg-card: #293446;
+  --bg-card-alt: #202b3d;
+  --bg-input: #394453;
+  --bg-hover: #232a45;
+  --bg-table: #202c40;
+  --bg-table-head: #202f46;
+  --bg-table-row: #293446;
+  --bg-table-row-alt: #253244;
+  --border: #3f4a5b;
+  --border-soft: #354257;
+  --text-main: #e2e8f0;
+  --text-secondary: #aeb9c9;
+  --text-muted: #9eabc1;
+  --text-strong: #f1f5f9;
+  --primary: #1683ff;
+  --primary-hover: #0d70df;
+  --primary-soft: rgba(22, 131, 255, 0.18);
+  --danger: #f06b75;
+  --sidebar-active-bg: #1d3150;
+  --sidebar-hover-bg: #1b2739;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg-main: #f4f6fa;
+  --bg-header: #ffffff;
+  --bg-sidebar: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-alt: #f1f4f8;
+  --bg-input: #ffffff;
+  --bg-hover: #eef3fa;
+  --bg-table: #ffffff;
+  --bg-table-head: #e9eff7;
+  --bg-table-row: #ffffff;
+  --bg-table-row-alt: #f7f9fc;
+  --border: #cad1da;
+  --border-soft: #e1e6ed;
+  --text-main: #1e293b;
+  --text-secondary: #64748b;
+  --text-muted: #758195;
+  --text-strong: #0f172a;
+  --primary: #1677e8;
+  --primary-hover: #0d63c5;
+  --primary-soft: rgba(22, 119, 232, 0.13);
+  --danger: #c0392b;
+  --sidebar-active-bg: #edf5ff;
+  --sidebar-hover-bg: #f5f8fc;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-height: 100%;
+  background: var(--bg-main);
+  transition: background-color 0.3s ease;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-family: "IRANSans", Tahoma, Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

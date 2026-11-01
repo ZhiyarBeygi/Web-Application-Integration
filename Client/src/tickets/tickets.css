@@ -1,0 +1,895 @@
+.tickets-app {
+  --ink: #18222e;
+  --ink-2: #ff1212;
+  --ink-soft: #38465a;
+  --muted: #5d6a79;
+  --bg: #eef1f6;
+  --surface: #fff;
+  --line: #d5dbe5;
+  --accent: #0f6f78;
+  --accent-dark: #0b575f;
+  --ring: rgba(15, 111, 120, 0.2);
+  --ring-strong: rgba(15, 111, 120, 0.35);
+  --hover-overlay: rgba(24, 34, 46, 0.06);
+  --shadow: 0 1px 2px rgba(24, 34, 46, 0.06), 0 12px 26px -16px rgba(24, 34, 46, 0.3);
+  --shadow-sm: 0 1px 2px rgba(24, 34, 46, 0.05);
+  --glow-1: #d6edf0;
+  --glow-2: #e5dff7;
+  --topbar-from: #0d3f4d;
+  --topbar-to: #146b78;
+  --topbar-shadow: rgba(13, 63, 77, 0.7);
+  --teal-bg: #e1f4f0;
+  --teal-border: #86cdc1;
+  --teal-ink: #0b5c52;
+  --blue-bg: #e4ecfb;
+  --blue-border: #a5bdee;
+  --blue-ink: #1d4a9c;
+  --violet-bg: #ece6fa;
+  --violet-border: #bfaeec;
+  --violet-ink: #55349b;
+  --violet-line: #cdbff0;
+  --violet-hover: #f6f2ff;
+  --info-bg: #d9e8ff;
+  --info-ink: #1a4a99;
+  --pending-bg: #fdf0c9;
+  --pending-ink: #7a5a00;
+  --done-bg: #d6f0de;
+  --done-ink: #1c6b36;
+  --error-bg: #fdecea;
+  --error-ink: #b42318;
+  --comment-bg: #eef2f8;
+  --comment-line: #7b8fb5;
+  --internal-bg: #fff2d5;
+  color-scheme: light;
+  font-family:
+    "Calibri",
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  color: var(--ink);
+}
+
+:root[data-theme="dark"] .tickets-app {
+  --ink: #e8eef9;
+  --ink-soft: #c0cce0;
+  --muted: #93a4bf;
+
+  /* Midnight navy surfaces */
+  --bg: #08111f;
+  --surface: #101d31;
+  --line: #293b56;
+
+  /* Blue primary actions */
+  --accent: #4f8cff;
+  --accent-dark: #3475e6;
+  --ring: rgba(79, 140, 255, 0.24);
+  --ring-strong: rgba(107, 161, 255, 0.48);
+  --hover-overlay: rgba(170, 197, 255, 0.09);
+
+  --shadow: 0 2px 5px rgba(0, 0, 0, 0.28), 0 12px 28px -16px rgba(0, 0, 0, 0.75);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+
+  /* Subtle blue background glows */
+  --glow-1: rgba(40, 94, 180, 0.22);
+  --glow-2: rgba(65, 83, 170, 0.16);
+
+  /* Navy gradient header */
+  --topbar-from: #071329;
+  --topbar-to: #15345e;
+  --topbar-shadow: rgba(0, 0, 0, 0.6);
+
+  /* Forms */
+  --teal-bg: #122541;
+  --teal-border: #2b4d7c;
+  --teal-ink: #a6c8ff;
+
+  /* Ticket lists */
+  --blue-bg: #10213b;
+  --blue-border: #294b7c;
+  --blue-ink: #a9caff;
+
+  /* User management */
+  --violet-bg: #15223a;
+  --violet-border: #304866;
+  --violet-ink: #c0d5f5;
+  --violet-line: #304866;
+  --violet-hover: #1d3454;
+
+  /* Status and information */
+  --info-bg: #19365f;
+  --info-ink: #b6d2ff;
+
+  --pending-bg: #3b3015;
+  --pending-ink: #f3ce73;
+
+  --done-bg: #163329;
+  --done-ink: #8bdbb5;
+
+  --error-bg: #3b2027;
+  --error-ink: #ffabb5;
+
+  /* Comments */
+  --comment-bg: #14243a;
+  --comment-line: #6687b9;
+  --internal-bg: #392e19;
+
+  color-scheme: dark;
+}
+
+.tickets-app * {
+  box-sizing: border-box;
+}
+.tickets-app {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(900px 420px at 6% -10%, var(--glow-1) 0%, transparent 60%),
+    radial-gradient(800px 400px at 100% 0%, var(--glow-2) 0%, transparent 55%), var(--bg);
+  background-attachment: fixed;
+}
+.tickets-app h1 {
+  margin: 0 0 18px;
+  padding: 5px;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+}
+.tickets-app h2 {
+  margin: 0 0 14px;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+}
+.tickets-app h3 {
+  margin: 0;
+  font-size: 1.02rem;
+}
+.tickets-app p {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+.tickets-app small,
+.tickets-app .muted {
+  color: var(--muted);
+}
+
+.tickets-app .topbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 14px 28px;
+  color: #fff;
+  width: 100%;
+  background: linear-gradient(100deg, var(--topbar-from), var(--topbar-to));
+  box-shadow: 0 6px 20px -10px var(--topbar-shadow);
+}
+.tickets-app .topbar strong {
+  font-size: 1.1rem;
+}
+.tickets-app .topbar strong::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-left: 10px;
+  border-radius: 50%;
+  background: #7ce0d0;
+}
+.tickets-app .who {
+  color: #bfe8ee;
+  font-size: 0.95rem;
+}
+.tickets-app .topbar button.secondary {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.tickets-app .topbar button.secondary:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.tickets-app .panel {
+  border: 1px solid;
+  padding: 22px;
+  margin-bottom: 22px;
+  box-shadow: var(--shadow);
+}
+.tickets-app .panel-create {
+  background: var(--teal-bg);
+  border-color: var(--teal-border);
+}
+.tickets-app .panel-create h1,
+.tickets-app .panel-create h2 {
+  color: var(--teal-ink);
+}
+.tickets-app .panel-list {
+  background: var(--blue-bg);
+  border-color: var(--blue-border);
+}
+.tickets-app .panel-list h2 {
+  color: var(--blue-ink);
+  text-align: right;
+}
+.tickets-app .panel-users {
+  background: var(--violet-bg);
+  border-color: var(--violet-border);
+}
+.tickets-app .panel-users h2 {
+  color: var(--violet-ink);
+}
+
+.tickets-app .card {
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  background: var(--surface);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+}
+.tickets-app .card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+.tickets-app .card p {
+  color: var(--ink-soft);
+}
+.tickets-app .ticket {
+  border-inline-start: 7px solid;
+}
+.tickets-app .ticket.Pending {
+  border-inline-start-color: #e0a100;
+}
+.tickets-app .ticket.In-Progress {
+  border-inline-start-color: #2f6fdb;
+}
+.tickets-app .ticket.Done {
+  border-inline-start-color: #2e9a55;
+}
+.tickets-app .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.tickets-app label {
+  display: block;
+  margin-bottom: 14px;
+  font-weight: 700;
+  font-size: 14pt;
+}
+.tickets-app input,
+.tickets-app textarea,
+.tickets-app select {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  padding: 10px 12px;
+  font: inherit;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+.tickets-app input:focus,
+.tickets-app textarea:focus,
+.tickets-app select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--ring);
+}
+.tickets-app .row select {
+  width: auto;
+  margin: 0;
+  padding: 7px 10px;
+}
+.tickets-app textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.tickets-app button {
+  padding: 10px 18px;
+  border: 0;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    transform 0.1s;
+}
+.tickets-app button:hover {
+  background: var(--accent-dark);
+}
+.tickets-app button:active {
+  transform: translateY(1px);
+}
+.tickets-app button:focus-visible {
+  outline: 3px solid var(--ring-strong);
+  outline-offset: 2px;
+}
+.tickets-app button.secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+.tickets-app button.secondary:hover {
+  background: var(--hover-overlay);
+}
+.tickets-app button.cancel {
+  background: var(--ink-2);
+}
+.tickets-app button.cancel:hover {
+  background-color: rgb(203, 16, 16);
+}
+.tickets-app .error {
+  color: var(--error-ink);
+  font-weight: 600;
+  background: var(--error-bg);
+  padding: 8px 12px;
+}
+
+.tickets-app .badge {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.tickets-app .badge::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  margin-inline-end: auto;
+}
+.tickets-app .badge.Pending {
+  background: var(--pending-bg);
+  color: var(--pending-ink);
+}
+.tickets-app .badge.In-Progress {
+  background: var(--info-bg);
+  color: var(--info-ink);
+}
+.tickets-app .badge.Done {
+  background: var(--done-bg);
+  color: var(--done-ink);
+}
+.tickets-app .badge.Approved {
+  background: var(--done-bg);
+  color: var(--done-ink);
+}
+.tickets-app .badge.Rejected {
+  background: var(--error-bg);
+  color: var(--error-ink);
+}
+
+.tickets-app .login {
+  max-width: 400px;
+  margin: 10vh auto 0;
+  padding: 30px;
+}
+.tickets-app .login::before {
+  content: "مدیریت ارتباط با مشتری";
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--teal-ink);
+  opacity: 0.8;
+  text-align: center;
+}
+.tickets-app .login button {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.tickets-app .user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--violet-line);
+}
+.tickets-app .user:hover {
+  background: var(--violet-hover);
+  transform: translateX(3px);
+}
+.tickets-app .user.active {
+  background: #55349b;
+  border-color: #55349b;
+  color: #fff;
+}
+.tickets-app .user.active small {
+  color: #e3d9ff;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.tickets-app main > *,
+.tickets-app .login {
+  animation: rise 0.35s ease both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tickets-app *,
+.tickets-app *::before {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+.tickets-app button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+.tickets-app .ticket-heading h3 {
+  overflow-wrap: anywhere;
+}
+.tickets-app .ticket-heading {
+  display: flex;
+  flex-direction: row;
+  direction: rtl;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  gap: 12px;
+}
+
+.tickets-app .ticket-heading > div:first-child {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.tickets-app .ticket-controls {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 50%;
+  max-width: 58%;
+  gap: 8px;
+  flex-shrink: 0;
+  margin-inline-start: auto;
+  direction: ltr;
+}
+
+.tickets-app .ticket-controls select {
+  direction: rtl;
+  text-align: right;
+  max-width: 190px;
+  width: 100%;
+  margin: 0;
+  padding: 7px 9px;
+  font-size: 0.9rem;
+}
+
+.tickets-app .comments .error {
+  margin: 8px 0;
+}
+@media (max-width: 560px) {
+  .tickets-app .topbar {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px 16px;
+  }
+  .tickets-app .who {
+    margin-inline-start: auto;
+  }
+  .tickets-app .row {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .tickets-app .ticket-controls {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .tickets-app .ticket-controls select {
+    flex: 1;
+    min-width: 110px;
+  }
+  .tickets-app .card-actions {
+    flex-wrap: wrap;
+  }
+}
+
+.tickets-app {
+  direction: rtl;
+}
+.tickets-app {
+  font-family: "Calibri", "Segoe UI", system-ui, sans-serif;
+}
+.tickets-app .topbar strong::before {
+  margin-inline-end: 10px;
+  margin-inline-start: 0;
+}
+.tickets-app .panel {
+  border-radius: 14px;
+}
+.tickets-app input,
+.tickets-app textarea,
+.tickets-app select,
+.tickets-app button {
+  border-radius: 9px;
+}
+.tickets-app .error {
+  border-radius: 8px;
+}
+.tickets-app .app-body {
+  display: flex;
+  align-items: stretch;
+  min-height: calc(100vh - 60px);
+}
+.tickets-app .page-content {
+  flex: 1;
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+  padding: 24px;
+}
+.tickets-app .page-title-row {
+  margin-bottom: 18px;
+}
+.tickets-app .page-title-row h1 {
+  margin-bottom: 0;
+}
+.tickets-app .ticket-form {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.tickets-app .ticket-form h1 {
+  color: var(--teal-ink);
+}
+.tickets-app .form-actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+.tickets-app .ticket-title-block {
+  min-width: 0;
+}
+.tickets-app .ticket-title-block h3 {
+  overflow-wrap: anywhere;
+}
+.tickets-app .ticket-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 135px;
+  margin: 0;
+  font-size: 0.82rem;
+}
+.tickets-app .ticket-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin: 8px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.tickets-app .ticket-meta strong {
+  color: var(--ink);
+}
+.tickets-app .expert-ticket-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.tickets-app .ticket-description {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.tickets-app .card-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 10px;
+}
+.tickets-app .staff-dashboard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+.tickets-app .staff-dashboard.is-admin {
+  grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+}
+.tickets-app .section-heading {
+  align-items: center;
+  margin-bottom: 14px;
+}
+.tickets-app .section-heading h2 {
+  margin: 0;
+}
+.tickets-app .section-heading button {
+  padding: 7px 10px;
+  font-size: 0.86rem;
+}
+.tickets-app .user-entry {
+  display: flex;
+  gap: 5px;
+  align-items: stretch;
+  margin-bottom: 8px;
+}
+.tickets-app .user-entry .user {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+}
+.tickets-app .user-name-block {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  overflow-wrap: anywhere;
+}
+.tickets-app .user-edit-button {
+  padding: 6px 9px;
+  font-size: 0.82rem;
+}
+.tickets-app .user-form {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--violet-line);
+}
+.tickets-app .user-form label {
+  font-size: 0.9rem;
+}
+.tickets-app .user-form input,
+.tickets-app .user-form select {
+  font-size: 0.92rem;
+}
+.tickets-app .full-width {
+  width: 100%;
+  margin-top: 10px;
+}
+.tickets-app .ticket-filters {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 180px;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.tickets-app .ticket-filters label {
+  margin: 0;
+  font-size: 0.9rem;
+}
+.tickets-app .count-badge {
+  border-radius: 999px;
+  padding: 4px 10px;
+  background: var(--info-bg);
+  color: var(--info-ink);
+  white-space: nowrap;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+@media (max-width: 1000px) {
+  .tickets-app .staff-dashboard.is-admin {
+    grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  }
+  .tickets-app .ticket-controls {
+    max-width: 100%;
+  }
+}
+@media (max-width: 760px) {
+  .tickets-app .app-body {
+    flex-direction: column;
+  }
+  .tickets-app .sidebar {
+    width: 100%;
+    min-height: auto;
+    flex: none;
+  }
+  .tickets-app .page-content {
+    width: 100%;
+    padding: 16px;
+  }
+  .tickets-app .staff-dashboard.is-admin {
+    grid-template-columns: 1fr;
+  }
+  .tickets-app .ticket-heading {
+    flex-direction: column;
+  }
+  .tickets-app .ticket-controls {
+    width: 100%;
+    max-width: none;
+  }
+  .tickets-app .ticket-controls label {
+    flex: 1 1 145px;
+  }
+  .tickets-app .ticket-controls select {
+    max-width: none;
+  }
+  .tickets-app .ticket-filters {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tickets-app .ticket-content-editor {
+  width: 100%;
+}
+.tickets-app .ticket-content-editor label {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+.tickets-app .ticket-content-editor textarea {
+  min-height: 80px;
+}
+
+.tickets-app .forward-form,
+.tickets-app .transfer-history {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--line);
+}
+.tickets-app .forward-form h4,
+.tickets-app .transfer-history h4 {
+  margin: 0 0 10px;
+  font-size: 0.98rem;
+}
+.tickets-app .transfer-history ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tickets-app .transfer-history li {
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border-inline-start: 4px solid var(--accent);
+  background: var(--hover-overlay);
+}
+.tickets-app .transfer-history li small {
+  display: block;
+  margin-top: 2px;
+}
+.tickets-app .transfer-history li p {
+  margin: 4px 0 0;
+}
+
+/* ---- transfer requests ---- */
+.tickets-app .transfer-requests-panel {
+  margin-bottom: 18px;
+}
+.tickets-app .request-card {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+}
+.tickets-app .request-card h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+.tickets-app .request-card p {
+  margin: 6px 0 0;
+}
+.tickets-app .request-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.tickets-app .request-reject {
+  margin-top: 10px;
+}
+.tickets-app .transfer-history li strong .badge {
+  margin-inline-start: 8px;
+}
+
+/* ---- confirm dialog (pop-up) ---- */
+.tickets-app .modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(8, 14, 22, 0.55);
+}
+.tickets-app .modal {
+  width: min(440px, 100%);
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+}
+.tickets-app .modal h3 {
+  margin: 0 0 10px;
+}
+.tickets-app .modal p {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.8;
+}
+.tickets-app .modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.tickets-app .theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 13px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  border-radius: 999px;
+  line-height: 1.2;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.tickets-app .theme-toggle svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+.tickets-app .theme-toggle-floating {
+  position: fixed;
+  top: 16px;
+  inset-inline-start: 16px;
+  z-index: 10;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+}
+
+.tickets-app .theme-toggle-floating:hover {
+  background: var(--hover-overlay);
+  border-color: var(--accent);
+}
+
+:root[data-theme="dark"] .tickets-app .topbar strong::before {
+  background: #8eb8ff;
+}
+
+.tickets-app .particles-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.tickets-app .particles-bg canvas {
+  display: block;
+}
+
+.tickets-app {
+  position: relative;
+  z-index: 1;
+}
+
+.tickets-app .topbar button.secondary.theme-toggle {
+  border: none;
+}

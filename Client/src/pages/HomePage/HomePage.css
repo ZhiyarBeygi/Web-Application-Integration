@@ -1,0 +1,22 @@
+.home-launcher {
+  min-height: 320px;
+  padding: 14px 8px;
+  color: var(--text-main);
+  transition: color 0.3s ease;
+}
+
+.home-launcher-title {
+  padding: 0px 0px 14px;
+  margin: 14px 20px 20px ;
+  border-bottom: 1px solid var(--border);
+  font-size: 22px;
+  font-weight: 250;
+  color: var(--text-main);
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.home-launcher-grid {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,68 @@
+## ---------- .NET / Visual Studio / VS Code ----------
+/TenderManagement/bin/
+/TenderManagement/obj/
+/TenderManagement/out/
+
+# Visual Studio files
+/TenderManagement/.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+/TenderManagement/[Dd]ebug/
+/TenderManagement/[Dd]ebugPublic/
+/TenderManagement/[Rr]elease/
+/TenderManagement/[Rr]eleases/
+/TenderManagement/x64/
+/TenderManagement/x86/
+/TenderManagement/[Aa][Rr][Mm]/
+/TenderManagement/[Aa][Rr][Mm]64/
+/TenderManagement/bld/
+/TenderManagement/msbuild.log
+/TenderManagement/msbuild.err
+/TenderManagement/msbuild.wrn
+
+# .NET Core
+/TenderManagement/project.lock.json
+/TenderManagement/project.fragment.lock.json
+/TenderManagement/artifacts/
+
+# appsettings with secrets (keep the template, ignore the real one)
+/TenderManagement/appsettings.Development.json
+/TenderManagement/appsettings.Local.json
+/TenderManagement/secrets.json
+
+# Rider / JetBrains
+/TenderManagement/.idea/
+
+## ---------- Node / React / Vite ----------
+/Client/node_modules/
+/Client/dist/
+/Client/dist-ssr/
+*.local
+
+# Vite
+/Client/.vite/
+
+# Env files (never commit real secrets/API URLs)
+/Client/.env
+/Client/.env.local
+/Client/.env.*.local
+
+## ---------- Logs ----------
+/Client/logs/
+*.log
+/Client/npm-debug.log*
+/Client/yarn-debug.log*
+/Client/yarn-error.log*
+
+## ---------- OS files ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## ---------- Editor ----------
+/TenderManagement/.vscode/*
+!/TenderManagement/.vscode/extensions.json

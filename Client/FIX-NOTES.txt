@@ -1,0 +1,14 @@
+Tender Management frontend visual repair
+
+What changed:
+- Replaced the CRM global stylesheet with the Tender Management theme foundation.
+- Removed global CRM rules that were forcing generic widths, margins, typography, form controls, buttons, cards, and panels across the Tender Management pages.
+- Restored the IRANSans font setup and added the theme variables used by the Tender Management screens, including table, border, focus, and danger colors.
+
+The API configuration, routes, page components, and backend are unchanged.
+
+Apply:
+1. Back up your current Replica/Client folder.
+2. Extract this archive into Replica, allowing the Client folder/files to be replaced.
+3. Keep your existing Client/node_modules folder; it is not included in this archive.
+4. Start the frontend as usual with npm run dev from Replica/Client.

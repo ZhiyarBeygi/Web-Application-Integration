@@ -1,0 +1,52 @@
+.tickets-app .comments-toggle {
+  margin-top: 10px;
+  padding: 6px 14px;
+  font-size: 0.9rem;
+}
+.tickets-app .comments {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--line);
+}
+.tickets-app .comments h4 {
+  margin: 0 0 10px;
+  font-size: 0.98rem;
+}
+.tickets-app .comment {
+  background: var(--comment-bg);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border-inline-start: 4px solid var(--comment-line);
+}
+.tickets-app .comment.mine {
+  background: var(--teal-bg);
+  border-inline-start-color: #2a9d8f;
+}
+.tickets-app .comment.internal {
+  background: var(--internal-bg);
+  border-inline-start-color: #d28a00;
+}
+.tickets-app .comment p {
+  margin: 4px 0 8px;
+}
+.tickets-app .comments form {
+  margin-top: 12px;
+}
+.tickets-app .comments input,
+.tickets-app .comments textarea {
+  margin-bottom: 8px;
+}
+.tickets-app .comments textarea {
+  min-height: 64px;
+}
+.tickets-app .checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tickets-app .checkbox-label input {
+  display: inline-block;
+  width: auto;
+  margin: 0;
+}

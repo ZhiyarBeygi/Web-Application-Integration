@@ -1,0 +1,100 @@
+.tickets-app .sidebar {
+  width: 260px;
+  flex: 0 0 260px;
+  min-height: calc(100vh - 60px);
+  padding: 14px 12px;
+  background: var(--surface);
+  border-inline-start: 1px solid var(--line);
+  box-shadow: 0 4px 18px rgba(24, 34, 46, 0.04);
+  transition:
+    width 0.2s,
+    flex-basis 0.2s;
+}
+.tickets-app .sidebar.is-collapsed {
+  width: 64px;
+  flex-basis: 64px;
+  padding-inline: 8px;
+}
+.tickets-app .sidebar-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+  padding: 4px 5px 12px;
+  border-bottom: 1px solid var(--line);
+  font-weight: 700;
+}
+.tickets-app .sidebar-toggle {
+  padding: 6px 10px;
+  background: transparent;
+  color: var(--ink);
+}
+.tickets-app .sidebar-toggle:hover {
+  background: var(--hover-overlay);
+}
+.tickets-app .sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.tickets-app .sidebar-link {
+  display: block;
+  padding: 11px 12px;
+  border-radius: 9px;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+.tickets-app .sidebar-link:hover {
+  background: var(--bg);
+}
+.tickets-app .sidebar-link.active {
+  background: var(--info-bg);
+  color: var(--info-ink);
+}
+.tickets-app .sidebar.is-collapsed .sidebar-link {
+  text-align: center;
+  padding: 10px 4px;
+}
+@media (max-width: 700px) {
+  .tickets-app .sidebar,
+.tickets-app .sidebar.is-collapsed {
+    width: 100%;
+    min-height: auto;
+    flex: none;
+    border-inline-start: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .tickets-app .sidebar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .tickets-app .sidebar-link,
+.tickets-app .sidebar.is-collapsed .sidebar-link {
+    flex: 1 1 140px;
+    text-align: center;
+  }
+}
+
+
+/* Separate admin navigation sections */
+.tickets-app .sidebar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 12px;
+}
+.tickets-app .sidebar-section + .sidebar-section {
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.tickets-app .sidebar-section-title {
+  padding: 4px 12px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
