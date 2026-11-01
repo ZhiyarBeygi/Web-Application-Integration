@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9vHcgWPVljE=",
+  "dgSpecHash": "Fo74Lb8KkmU=",
   "success": true,
-  "projectFilePath": "e:\\Zhiyar\\Work\\Projects\\Main\\Integration\\SupportTicketSystem\\SupportTicketSystem.csproj",
+  "projectFilePath": "E:\\Zhiyar\\Work\\Projects\\Main\\Integration\\SupportTicketSystem\\SupportTicketSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Delnia\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Delnia\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
@@ -48,4 +48,5 @@
     "C:\\Users\\Delnia\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\9.0.20\\microsoft.aspnetcore.app.ref.9.0.20.nupkg.sha512",
     "C:\\Users\\Delnia\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\9.0.20\\microsoft.netcore.app.host.win-x64.9.0.20.nupkg.sha512"
   ],
-  "logs
+  "logs": []
+}

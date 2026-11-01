@@ -66,3 +66,13 @@ desktop.ini
 ## ---------- Editor ----------
 /TenderManagement/.vscode/*
 !/TenderManagement/.vscode/extensions.json
+
+## --------- CRM ------------
+.vs/
+**/bin/
+**/obj/
+*.user
+*.suo
+node_modules/
+dist/
+.env
