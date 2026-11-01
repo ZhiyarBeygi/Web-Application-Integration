@@ -1,78 +1,102 @@
-## ---------- .NET / Visual Studio / VS Code ----------
-/TenderManagement/bin/
-/TenderManagement/obj/
-/TenderManagement/out/
+## ==========================================
+## .NET / ASP.NET Core
+## ==========================================
 
-# Visual Studio files
-/TenderManagement/.vs/
+**/bin/
+**/obj/
+**/out/
+**/artifacts/
+**/[Dd]ebug/
+**/[Rr]elease/
+**/[Dd]ebugPublic/
+**/[Rr]eleases/
+**/x64/
+**/x86/
+**/[Aa][Rr][Mm]/
+**/[Aa][Rr][Mm]64/
+**/bld/
+
+# Visual Studio
+**/.vs/
 *.user
 *.suo
 *.userosscache
 *.sln.docstates
 
-# Build results
-/TenderManagement/[Dd]ebug/
-/TenderManagement/[Dd]ebugPublic/
-/TenderManagement/[Rr]elease/
-/TenderManagement/[Rr]eleases/
-/TenderManagement/x64/
-/TenderManagement/x86/
-/TenderManagement/[Aa][Rr][Mm]/
-/TenderManagement/[Aa][Rr][Mm]64/
-/TenderManagement/bld/
-/TenderManagement/msbuild.log
-/TenderManagement/msbuild.err
-/TenderManagement/msbuild.wrn
-
-# .NET Core
-/TenderManagement/project.lock.json
-/TenderManagement/project.fragment.lock.json
-/TenderManagement/artifacts/
-
-# appsettings with secrets (keep the template, ignore the real one)
-/TenderManagement/appsettings.Development.json
-/TenderManagement/appsettings.Local.json
-/TenderManagement/secrets.json
+# .NET temporary files
+*.cache
+*.tmp
+msbuild.log
+msbuild.err
+msbuild.wrn
 
 # Rider / JetBrains
-/TenderManagement/.idea/
+**/.idea/
 
-## ---------- Node / React / Vite ----------
-/Client/node_modules/
-/Client/dist/
-/Client/dist-ssr/
-*.local
+# Local application configuration
+**/appsettings.Local.json
+**/secrets.json
 
-# Vite
-/Client/.vite/
+# Ignore development settings if they contain local secrets
+**/appsettings.Development.json
 
-# Env files (never commit real secrets/API URLs)
-/Client/.env
-/Client/.env.local
-/Client/.env.*.local
 
-## ---------- Logs ----------
-/Client/logs/
+## ==========================================
+## React / Node.js / Vite
+## ==========================================
+
+**/node_modules/
+**/dist/
+**/dist-ssr/
+**/.vite/
+
+# Environment variables and secrets
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env.sample
+
+# Local configuration
+**/*.local
+
+
+## ==========================================
+## Logs
+## ==========================================
+
+**/logs/
 *.log
-/Client/npm-debug.log*
-/Client/yarn-debug.log*
-/Client/yarn-error.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-## ---------- OS files ----------
+
+## ==========================================
+## SQL Server
+## ==========================================
+
+*.mdf
+*.ldf
+*.ndf
+*.bak
+*.trn
+
+
+## ==========================================
+## Editor
+## ==========================================
+
+.vscode/*
+!.vscode/extensions.json
+
+**/.vscode/*
+!**/.vscode/extensions.json
+
+
+## ==========================================
+## Operating System
+## ==========================================
+
 .DS_Store
 Thumbs.db
 desktop.ini
-
-## ---------- Editor ----------
-/TenderManagement/.vscode/*
-!/TenderManagement/.vscode/extensions.json
-
-## --------- CRM ------------
-.vs/
-**/bin/
-**/obj/
-*.user
-*.suo
-node_modules/
-dist/
-.env
